@@ -1,0 +1,1145 @@
+{
+  "last_node_id": 41,
+  "last_link_id": 56,
+  "nodes": [
+    {
+      "id": 9,
+      "type": "Note",
+      "pos": [
+        1136,
+        -23
+      ],
+      "size": {
+        "0": 261.4118957519531,
+        "1": 94.02690887451172
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "WIDTH/HEIGHT 和 TARGET_WIDTH/HEIGHT 都是latent size的 4 倍。\n\n这样操作，通常可以实现更高清的图像。"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 18,
+      "type": "Note",
+      "pos": [
+        704,
+        63
+      ],
+      "size": {
+        "0": 293.9573669433594,
+        "1": 107.75416564941406
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "请注意，我向 TEXT_G 和 TEXT_L 发送相同的提示，您可以尝试不同的提示，但使用相同的提示，似乎会生成更可预测的结果。"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 4,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1117,
+        895
+      ],
+      "size": {
+        "0": 285.9150085449219,
+        "1": 115.1269302368164
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            41
+          ],
+          "shape": 3,
+          "label": "LATENT",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 11,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        1119,
+        558
+      ],
+      "size": {
+        "0": 290,
+        "1": 270
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 12,
+          "label": "clip"
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 28,
+          "widget": {
+            "name": "text_g"
+          },
+          "slot_index": 1,
+          "label": "text_g"
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 36,
+          "widget": {
+            "name": "text_l"
+          },
+          "label": "text_l"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            42
+          ],
+          "shape": 3,
+          "label": "CONDITIONING",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        4096,
+        4096,
+        0,
+        0,
+        4096,
+        4096,
+        "CLIP_G",
+        "CLIP_L"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 10,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        1120,
+        140
+      ],
+      "size": {
+        "0": 296.2239990234375,
+        "1": 270
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 10,
+          "label": "clip"
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 23,
+          "widget": {
+            "name": "text_g"
+          },
+          "slot_index": 1,
+          "label": "text_g"
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 24,
+          "widget": {
+            "name": "text_l"
+          },
+          "slot_index": 2,
+          "label": "text_l"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            43
+          ],
+          "shape": 3,
+          "label": "CONDITIONING",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        4096,
+        4096,
+        0,
+        0,
+        4096,
+        4096,
+        "CLIP_G",
+        "CLIP_L"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1,
+      "type": "CheckpointLoader|pysssss",
+      "pos": [
+        155,
+        463
+      ],
+      "size": {
+        "0": 423.86669921875,
+        "1": 122
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            44
+          ],
+          "shape": 3,
+          "label": "MODEL",
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            10,
+            12
+          ],
+          "shape": 3,
+          "label": "CLIP",
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            4
+          ],
+          "shape": 3,
+          "label": "VAE",
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoader|pysssss"
+      },
+      "widgets_values": [
+        {
+          "content": "SDXL\\sd_xl_base_1.0_0.9vae.safetensors",
+          "image": null
+        },
+        "[none]"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": [
+        658,
+        244
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            23,
+            24,
+            48
+          ],
+          "shape": 3,
+          "label": "string",
+          "slot_index": 0
+        }
+      ],
+      "title": "🪛 Primitive string multiline正向提示词",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        "a photo of a anthropomorphic fox wearing a spacesuit inside a sci-fi spaceship,\ncinematic, dramatic lighting, high resolution, detailed, 4k,"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 16,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": [
+        657,
+        581
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            28,
+            36,
+            49
+          ],
+          "shape": 3,
+          "label": "string",
+          "slot_index": 0
+        }
+      ],
+      "title": "🪛 Primitive string multiline负向提示词",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        "blurry, illustration, toy, clay, low quality, flag, nasa, mission patch,"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 31,
+      "type": "PrimitiveNode",
+      "pos": [
+        1120,
+        1069
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            39,
+            50
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "steps"
+          },
+          "label": "INT"
+        }
+      ],
+      "title": "Primitive总步数",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        30,
+        "fixed"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "PrimitiveNode",
+      "pos": [
+        1122,
+        1207
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            40,
+            51
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "end_at_step"
+          },
+          "label": "INT"
+        }
+      ],
+      "title": "Primitive基础模型步数",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        25,
+        "fixed"
+      ]
+    },
+    {
+      "id": 23,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        1665,
+        332
+      ],
+      "size": [
+        408.0296325683594,
+        538
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 44,
+          "label": "model",
+          "slot_index": 0
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 43,
+          "label": "positive",
+          "slot_index": 1
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 42,
+          "label": "negative"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 41,
+          "label": "latent_image",
+          "slot_index": 3
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 39,
+          "widget": {
+            "name": "steps"
+          },
+          "slot_index": 5,
+          "label": "steps"
+        },
+        {
+          "name": "end_at_step",
+          "type": "INT",
+          "link": 40,
+          "widget": {
+            "name": "end_at_step"
+          },
+          "label": "end_at_step"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            52
+          ],
+          "shape": 3,
+          "label": "LATENT",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerAdvanced"
+      },
+      "widgets_values": [
+        "enable",
+        628028721247134,
+        "randomize",
+        30,
+        6.5,
+        "dpmpp_2m_sde",
+        "exponential",
+        0,
+        25,
+        "enable"
+      ]
+    },
+    {
+      "id": 34,
+      "type": "CLIPTextEncodeSDXLRefiner",
+      "pos": [
+        2166,
+        180
+      ],
+      "size": {
+        "0": 248.9996337890625,
+        "1": 126
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 46,
+          "label": "clip"
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 48,
+          "widget": {
+            "name": "text"
+          },
+          "label": "text"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            53
+          ],
+          "shape": 3,
+          "label": "CONDITIONING",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXLRefiner"
+      },
+      "widgets_values": [
+        6,
+        1024,
+        1024,
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 33,
+      "type": "CheckpointLoader|pysssss",
+      "pos": [
+        1670,
+        67
+      ],
+      "size": {
+        "0": 400.3162536621094,
+        "1": 122
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            55
+          ],
+          "shape": 3,
+          "label": "MODEL",
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            46,
+            47
+          ],
+          "shape": 3,
+          "label": "CLIP",
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": null,
+          "shape": 3,
+          "label": "VAE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoader|pysssss"
+      },
+      "widgets_values": [
+        {
+          "content": "SDXL\\sd_xl_refiner_1.0_0.9vae.safetensors",
+          "image": null
+        },
+        "[none]"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "VAEDecode",
+      "pos": [
+        3068,
+        324
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 56,
+          "label": "samples"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 4,
+          "label": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            45
+          ],
+          "shape": 3,
+          "label": "IMAGE",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 38,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        2534,
+        181
+      ],
+      "size": [
+        404.8428369140629,
+        538
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 55,
+          "label": "model"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 53,
+          "label": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 54,
+          "label": "negative"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 52,
+          "label": "latent_image"
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 50,
+          "widget": {
+            "name": "steps"
+          },
+          "slot_index": 4
+        },
+        {
+          "name": "start_at_step",
+          "type": "INT",
+          "link": 51,
+          "widget": {
+            "name": "start_at_step"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            56
+          ],
+          "shape": 3,
+          "label": "LATENT",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerAdvanced"
+      },
+      "widgets_values": [
+        "enable",
+        856198712890556,
+        "randomize",
+        30,
+        8,
+        "euler",
+        "normal",
+        25,
+        10000,
+        "disable"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "Note",
+      "pos": [
+        182,
+        211
+      ],
+      "size": {
+        "0": 371.16937255859375,
+        "1": 188.6027374267578
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "基础 SDXL 工作流：BASE+REFINER\n================================\n\n此工作流展示了官方建议的使用方式：BASE 和 REFINER 模型结合使用。\n工作流的核心由 BASE 创建，REFINER 负责处理细节。"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 39,
+      "type": "Note",
+      "pos": [
+        1372,
+        1091
+      ],
+      "size": [
+        218.46529422246954,
+        151.33166508491877
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "我们在这里使用“primitives”来同步BASE 和 REFINER。\n\n上方的输入是总步数，下方的输入是在BASE模型上花费的步数，其余的步数将由REFINER模型处理。\n\n当然，总步数必须是 > 基础模型步数。"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 40,
+      "type": "Note",
+      "pos": [
+        2172,
+        704
+      ],
+      "size": [
+        238.83823941042283,
+        166.74787408726968
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "ADVANCED KSAMPLER\n=================\n\n请注意，第一个 ksampler（BASE模型使用）已启用RETURN_WITH_LEFTOVER_NOISE，第二个（REFINER模型使用）已禁用RETURN WITH LEFTOVER NOISE。\n\n第一个 ksampler 在 25 个步数时停止生成，并从REFINER（生成最后 5 个步数）中取回。"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 41,
+      "type": "Note",
+      "pos": [
+        785,
+        897
+      ],
+      "size": [
+        210.36814425244165,
+        400.70125771858557
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "支持的分辨率\n=====================\n\n比率分辨率\n-----------------\n0.5:   704×1408\n0.52:  704×1344\n0.57:  768×1344\n0.6:   768×1280\n0.68:  832×1216\n0.72:  832×1152\n0.78:  896×1152\n0.82:  896×1088\n0.88:  960×1088\n0.94:  960×1024\n1.0:  1024×1024\n1.07:  1024×960\n1.13:  1088×960\n1.21:  1088×896\n1.29:  1152×896\n1.38:  1152×832\n1.46:  1216×832\n1.67:  1280×768\n1.75:  1344×768\n1.91:  1344×704\n2.0:   1408×704\n2.09:  1472×704\n2.4:   1536×640\n2.5:   1600×640\n2.89:  1664×576\n3.0:   1728×576"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 36,
+      "type": "SaveImage",
+      "pos": [
+        3333,
+        324
+      ],
+      "size": {
+        "0": 1099.4549560546875,
+        "1": 1142.561767578125
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 45,
+          "label": "images"
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 35,
+      "type": "CLIPTextEncodeSDXLRefiner",
+      "pos": [
+        2169,
+        515
+      ],
+      "size": {
+        "0": 248.9996337890625,
+        "1": 126
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 47,
+          "label": "clip"
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 49,
+          "widget": {
+            "name": "text"
+          },
+          "label": "text"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            54
+          ],
+          "shape": 3,
+          "label": "CONDITIONING",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXLRefiner"
+      },
+      "widgets_values": [
+        3,
+        1024,
+        1024,
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    }
+  ],
+  "links": [
+    [
+      4,
+      1,
+      2,
+      6,
+      1,
+      "VAE"
+    ],
+    [
+      10,
+      1,
+      1,
+      10,
+      0,
+      "CLIP"
+    ],
+    [
+      12,
+      1,
+      1,
+      11,
+      0,
+      "CLIP"
+    ],
+    [
+      23,
+      17,
+      0,
+      10,
+      1,
+      "STRING"
+    ],
+    [
+      24,
+      17,
+      0,
+      10,
+      2,
+      "STRING"
+    ],
+    [
+      28,
+      16,
+      0,
+      11,
+      1,
+      "STRING"
+    ],
+    [
+      36,
+      16,
+      0,
+      11,
+      2,
+      "STRING"
+    ],
+    [
+      39,
+      31,
+      0,
+      23,
+      4,
+      "INT"
+    ],
+    [
+      40,
+      32,
+      0,
+      23,
+      5,
+      "INT"
+    ],
+    [
+      41,
+      4,
+      0,
+      23,
+      3,
+      "LATENT"
+    ],
+    [
+      42,
+      11,
+      0,
+      23,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      43,
+      10,
+      0,
+      23,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      44,
+      1,
+      0,
+      23,
+      0,
+      "MODEL"
+    ],
+    [
+      45,
+      6,
+      0,
+      36,
+      0,
+      "IMAGE"
+    ],
+    [
+      46,
+      33,
+      1,
+      34,
+      0,
+      "CLIP"
+    ],
+    [
+      47,
+      33,
+      1,
+      35,
+      0,
+      "CLIP"
+    ],
+    [
+      48,
+      17,
+      0,
+      34,
+      1,
+      "STRING"
+    ],
+    [
+      49,
+      16,
+      0,
+      35,
+      1,
+      "STRING"
+    ],
+    [
+      50,
+      31,
+      0,
+      38,
+      4,
+      "INT"
+    ],
+    [
+      51,
+      32,
+      0,
+      38,
+      5,
+      "INT"
+    ],
+    [
+      52,
+      23,
+      0,
+      38,
+      3,
+      "LATENT"
+    ],
+    [
+      53,
+      34,
+      0,
+      38,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      54,
+      35,
+      0,
+      38,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      55,
+      33,
+      0,
+      38,
+      0,
+      "MODEL"
+    ],
+    [
+      56,
+      38,
+      0,
+      6,
+      0,
+      "LATENT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
